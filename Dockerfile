@@ -14,8 +14,8 @@ RUN apt-get update && \
 RUN wget https://download.mql5.com/cdn/web/metaquotes.software.corp/mt4/mt4setup.exe -O /tmp/mt4setup.exe && \
     wine /tmp/mt4setup.exe /S
 
-# Étape 5 : Copier le bot dans le conteneur
-COPY ./bot/trading_bot.mq4 /root/.wine/drive_c/Program\ Files/MetaTrader\ 4/MQL4/Experts/
+# Étape 5 : Copier le bot dans le conteneur (avec chemin entre guillemets)
+COPY ./bot/trading_bot.mq4 "/root/.wine/drive_c/Program Files/MetaTrader 4/MQL4/Experts/"
 
 # Étape 6 : Script pour lancer MetaTrader 4
 COPY ./scripts/start_mt4.sh /root/start_mt4.sh
